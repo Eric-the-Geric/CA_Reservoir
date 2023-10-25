@@ -3,19 +3,15 @@ import tensorflow as tf
 from tensorflow import keras
 import matplotlib.pyplot as plt
 
- 
 
-# =============================================================================
+
+ # =============================================================================
 # LOAD AND PREPROCESS DATA
 # -=============================================================================
-
- 
 
 # Load MNIST dataset and preprocess
 mnist = tf.keras.datasets.mnist
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
-
- 
 
 # Show first example of x_train: images coded in grayscale
 print(x_train[0,:,:])
@@ -100,7 +96,7 @@ def ECA(rule, num_cells, time_steps, x_init):
     for i in range(time_steps - 1):
         x[i + 1, :] = ECA_step(x[i, :], rule_b)
     # Cast the result to float32 before returning
-    return x.astype(np.float32)#[time_steps-1]
+    return x.astype(np.float32)[time_steps-1]
 
  
 
